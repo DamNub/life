@@ -1,10 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    test
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+  body {
+    background-color: black;
+    margin: 0px;
+  }
+  </style>
+
+
+  <script>
+
+  var xcor = 0;
+  var ycor = 0;
+  var steps = 40;
+  var amount = 5;
+ var all = [] ;
+
+
+
+    window.onload = function getimg() {
+       for (var i = 0; i < amount; i++) {
+         var img = document.createElement("img");
+
+        img.src = i +".png";
+
+         console.log(img);
+         img.style.left = xcor + "px";
+         img.style.top = ycor  + "px";
+         img.style.width = steps + "px";
+         img.style.height = steps + "px";
+         img.style.position = "fixed";
+
+         var src = document.getElementById("main");
+         src.appendChild(img);
+
+
+         if (ycor > window.innerHeight) {
+           ycor = 0;
+           xcor += steps;
+         } else {
+           ycor+=steps;
+         }
+    }
+
+    xcor = 0;
+    ycor = 0;
+  };
+
+  setInterval(function () {
+     for (var i = 0; i < amount; i++) {
+       var img = document.createElement("img");
+       img.src = i +".png";
+
+       img.style.left = xcor + "px";
+       img.style.top = ycor  + "px";
+       img.style.width = steps + "px";
+       img.style.height = steps + "px";
+       img.style.position = "fixed";
+
+         var src = document.getElementById("main");
+         src.appendChild(img);
+
+
+       if (ycor > window.innerHeight) {
+         ycor = 0;
+         xcor += steps;
+       } else {
+         ycor+=steps;
+       }
+
+  }
+
+  xcor = 0;
+  ycor = 0;
+  amount += 1;
+}, 5000);
+
+
+
+  </script>
+</head>
+<body>
+
+<div id="main"> </div>
+
+
+
+</body>
 </html>
